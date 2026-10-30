@@ -1,9 +1,7 @@
-#_{:clj-kondo/ignore [:namespace-name-mismatch]}
 (ns psk-secure-channel.protocol)
 
 (def protocol-version "psk-secure-channel-v1")
-
-(def msg-client-hello 0x01)
+(def msg-client-hello  0x01)
 (def msg-server-hello  0x02)
 (def msg-client-finished 0x03)
 (def msg-server-finished 0x04)

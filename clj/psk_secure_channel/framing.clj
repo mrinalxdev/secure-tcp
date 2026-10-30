@@ -1,8 +1,7 @@
-#_{:clj-kondo/ignore [:namespace-name-mismatch]}
 (ns psk-secure-channel.framing
   (:require [psk-secure-channel.protocol :as proto]))
 
-(defn write-u16 
+(defn write-u16
   [out len]
   (let [b1 (bit-and (bit-shift-right len 8) 0xFF)
         b2 (bit-and len 0xFF)]
@@ -27,7 +26,7 @@
     (.write out (byte-array payload))
     (.flush out)))
 
-(defn read-frame 
+(defn read-frame
   [^java.io.InputStream in]
   (let [len (read-u16 in)]
     (when (or (neg? len) (> len proto/max-frame-size))
